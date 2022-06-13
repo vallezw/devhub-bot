@@ -11,7 +11,6 @@ module.exports = {
   setDescription("Send the default market guide message")
   	.setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
   async execute(interaction) {
-	console.log();
 	const marketGuideChannel =
     interaction.member.guild.channels.cache.get(
       "985705261610188821"
