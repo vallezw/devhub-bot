@@ -37,7 +37,9 @@ module.exports = {
         description: "",
         timestamp: "2022-06-01T02:44:00.000Z",
         image: {},
-        thumbnail: {},
+        thumbnail: {
+          url: submittedData.avatarURL,
+        },
         footer: {
           text: "Developer Hub",
           icon_url: "",

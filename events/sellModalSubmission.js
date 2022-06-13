@@ -22,6 +22,7 @@ module.exports = {
       portfolio: interaction.fields.getTextInputValue("portfoliosInput"),
       expertises: interaction.fields.getTextInputValue("expertiseInput"),
       author: interaction.user.toString(),
+      avatarURL: interaction.user.avatarURL(),
     };
 
     const row = new MessageActionRow().addComponents(
