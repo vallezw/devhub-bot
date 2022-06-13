@@ -4,13 +4,15 @@ const { submissionsChannelId } = require("../config.json");
 module.exports = {
   name: "interactionCreate",
   async execute(interaction) {
-    if (!interaction.isModalSubmit() || interaction.customId != "sellModal") return;
+    if (!interaction.isModalSubmit() || interaction.customId != "sellModal")
+      return;
 
-    const submissionsChannel = interaction.member.guild.channels.cache.get(submissionsChannelId);
-    
-    
+    const submissionsChannel =
+      interaction.member.guild.channels.cache.get(submissionsChannelId);
+
     await interaction.reply({
-      content: "Thanks for the submission! Our support team will look over it soon.",
+      content:
+        "Thanks for the submission! Our support team will look over it soon.",
       ephemeral: true,
     });
 
@@ -19,10 +21,9 @@ module.exports = {
       skills: interaction.fields.getTextInputValue("skillsInput"),
       portfolio: interaction.fields.getTextInputValue("portfoliosInput"),
       expertises: interaction.fields.getTextInputValue("expertiseInput"),
-      author: interaction.user.tag,
+      author: interaction.user.toString(),
     };
 
-    
     const row = new MessageActionRow().addComponents(
       new MessageButton()
         .setCustomId("validateUser")
@@ -30,7 +31,7 @@ module.exports = {
         .setStyle("SUCCESS")
     );
 
-   	await submissionsChannel.send({
+    await submissionsChannel.send({
       content: JSON.stringify(submittedData),
       components: [row],
     });
