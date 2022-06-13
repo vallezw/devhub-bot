@@ -66,7 +66,7 @@ async function openModal(interaction) {
 
   const expertiseInput = new TextInputComponent()
     .setCustomId("expertiseInput")
-    .setLabel("What are your expertises??")
+    .setLabel("What are your expertises?")
     .setPlaceholder("eg. Website developer for over 10 years")
     .setRequired(true)
     .setStyle("PARAGRAPH");

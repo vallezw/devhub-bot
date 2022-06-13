@@ -29,8 +29,8 @@ module.exports = {
       title: "Buying and Selling Guide",
       color: 6930876,
       description:
-        "Before going ahead with any sale make sure to read over <#985710160464973854>!\n\nNever do business outside of the Developer Hub server or within direct messages. If another user lures you to do a deal outside of the Developer Hub discord server, please report this to a member off staff immediately with it likely being a scam.\n‏‏‎ ‎\n> Step One:\n- Create a Request via the button below.\n⠀\n> Step Two:\n- View the desired buy or sell channel. Contact a seller or buyer from within the channel.\n⠀\n> Step Three:\n- Come to an agreement with the user on the details of the transaction. (Example: Price, Payment Method)\n⠀\n> Step Four:\n- Open a middleman ticket within <#985713057055518751> and a verified middleman will walk you through the process of the deal for your desired product.\n\nNote: We will never request you to complete a sale via direct message or another server.*",
-      timestamp: "",
+        "Before going ahead with any sale make sure to read over <#985710160464973854>!\n\nNever do business outside of the Developer Hub server or within direct messages. If another user lures you to do a deal outside of the Developer Hub discord server, please report this to a member off staff immediately with it likely being a scam.\n> Step One:\n- Create a Request via the button below and wait for our team to validate it.\n> Step Two:\n- View the desired buy or sell channel. Contact a seller or buyer from within the channel.\n> Step Three:\n- Come to an agreement with the user on the details of the transaction. (Example: Price, Payment Method)\n> Step Four:\n- Open a middleman ticket within open-ticket and a verified middleman will walk you through the process of the deal for your desired product.\n\nNote: We will never request you to complete a sale via direct message or another server.*",
+      timestamp: new Date(),
       image: {},
       thumbnail: {},
       footer: {

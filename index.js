@@ -1,5 +1,5 @@
-const { Client, Collection, Intents } = require('discord.js');
-const dotenv = require('dotenv');
+const { Client, Collection, Intents } = require("discord.js");
+const dotenv = require("dotenv");
 const fs = require("node:fs");
 const path = require("node:path");
 
@@ -7,7 +7,6 @@ dotenv.config();
 const token = process.env.DISCORD_TOKEN;
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
-
 
 //Get Commands
 client.commands = new Collection();
@@ -22,7 +21,7 @@ for (const file of commandFiles) {
   client.commands.set(command.data.name, command);
 }
 
-//Get Events
+//Get Events#
 const eventsPath = path.join(__dirname, "events");
 const eventFiles = fs
   .readdirSync(eventsPath)
@@ -39,22 +38,21 @@ for (const file of eventFiles) {
 }
 
 client.on("interactionCreate", async (interaction) => {
-	if (!interaction.isCommand()) return;
+  if (!interaction.isCommand()) return;
 
-	const command = client.commands.get(interaction.commandName);
+  const command = client.commands.get(interaction.commandName);
 
-	if (!command) return;
+  if (!command) return;
 
-	try {
-		await command.execute(interaction);
-	} catch (error) {
-		console.error(error);
-		await interaction.reply({
-		content: "There was an error while executing this command!",
-		ephemeral: true,
-		});
-	}
+  try {
+    await command.execute(interaction);
+  } catch (error) {
+    console.error(error);
+    await interaction.reply({
+      content: "There was an error while executing this command!",
+      ephemeral: true,
+    });
+  }
 });
-
 
 client.login(token);

@@ -29,11 +29,53 @@ module.exports = {
       new MessageButton()
         .setCustomId("validateSellUser")
         .setLabel("Validate Sell")
-        .setStyle("SUCCESS")
+        .setStyle("SUCCESS"),
+      new MessageButton()
+        .setCustomId("denyRequest")
+        .setLabel("Deny Request")
+        .setStyle("DANGER")
     );
 
+    const embed = {
+      title: "Sell listing #XXX",
+      color: 6930876,
+      description: "",
+      timestamp: new Date(),
+      image: {},
+      thumbnail: {
+        url: submittedData.avatarURL,
+      },
+      footer: {
+        text: "Developer Hub",
+        icon_url: "",
+      },
+      fields: [
+        {
+          name: ":telescope: User accepts:",
+          value: submittedData.sellType,
+        },
+        {
+          name: ":briefcase: Portfolios:",
+          value: submittedData.portfolio,
+        },
+        {
+          name: ":metal: Skills:",
+          value: submittedData.skills,
+          inline: false,
+        },
+        {
+          name: ":clap: Expertise:",
+          value:
+            submittedData.expertises +
+            "\n\n:bust_in_silhouette: Listing by " +
+            submittedData.author,
+          inline: false,
+        },
+      ],
+    };
+
     await submissionsChannel.send({
-      content: JSON.stringify(submittedData),
+      embeds: [embed],
       components: [row],
     });
   },
