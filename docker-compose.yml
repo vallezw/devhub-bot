@@ -1,0 +1,9 @@
+# Example docker-compose file for devhub-bot
+version: "3.9"
+services:
+  bot:
+    image: ghcr.io/vallezw/devhub-bot
+    volumes:
+      - /your/dir:/usr/src/bot/data
+    environment:
+      - DISCORD_TOKEN=<your-discord-token>
