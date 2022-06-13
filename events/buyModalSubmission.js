@@ -4,7 +4,7 @@ const { submissionsChannelId } = require("../config.json");
 module.exports = {
   name: "interactionCreate",
   async execute(interaction) {
-    if (!interaction.isModalSubmit() || interaction.customId != "sellModal")
+    if (!interaction.isModalSubmit() || interaction.customId != "buyModal")
       return;
 
     const submissionsChannel =
@@ -17,19 +17,20 @@ module.exports = {
     });
 
     const submittedData = {
-      sellType: interaction.fields.getTextInputValue("typeInput"),
-      skills: interaction.fields.getTextInputValue("skillsInput"),
-      portfolio: interaction.fields.getTextInputValue("portfoliosInput"),
-      expertises: interaction.fields.getTextInputValue("expertiseInput"),
+      scope: interaction.fields.getTextInputValue("scopeInput"),
+      budget: interaction.fields.getTextInputValue("budgetInput"),
+      category: interaction.fields.getTextInputValue("categoryInput"),
+      deadline: interaction.fields.getTextInputValue("deadlineInput"),
+      description: interaction.fields.getTextInputValue("describeInput"),
       author: interaction.user.toString(),
       avatarURL: interaction.user.avatarURL(),
     };
 
     const row = new MessageActionRow().addComponents(
       new MessageButton()
-        .setCustomId("validateSellUser")
-        .setLabel("Validate Sell")
-        .setStyle("SUCCESS")
+        .setCustomId("validateBuyUser")
+        .setLabel("Validate Buy")
+        .setStyle("PRIMARY")
     );
 
     await submissionsChannel.send({

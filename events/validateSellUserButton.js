@@ -1,13 +1,13 @@
 const wait = require("node:timers/promises").setTimeout;
 const { MessageEmbed } = require("discord.js");
 const { sellChannelId } = require("../config.json");
-const { incrementSellListing } = require("../utils/utils");
+const { incrementListing } = require("../utils/utils");
 const fs = require("fs");
 
 module.exports = {
   name: "interactionCreate",
   async execute(interaction) {
-    if (!interaction.isButton() || interaction.customId != "validateUser")
+    if (!interaction.isButton() || interaction.customId != "validateSellUser")
       return;
 
     const submittedData = JSON.parse(interaction.message.content);
@@ -19,19 +19,16 @@ module.exports = {
       components: [],
     });
 
-    incrementSellListing();
-    fs.readFile("./data/sellListing.txt", (err, data) => {
+    const sellListingPath = "./data/sellListing.txt";
+
+    incrementListing(sellListingPath);
+    fs.readFile(sellListingPath, (err, data) => {
       if (err) {
         data = 0;
       }
       let number = Number(data.toString());
 
       const embed = {
-        author: {
-          name: "Developer Hub",
-          icon_url:
-            "https://cdn.discordapp.com/icons/985660112779747388/4b1979b987a7113723bf0a211ca3c772.webp?size=96",
-        },
         title: "Sell listing #" + (number + 1).toString(),
         color: 6930876,
         description: "",

@@ -14,18 +14,18 @@ module.exports = {
 
     const row = new MessageActionRow().addComponents(
       new MessageButton()
-        .setCustomId("openRequestButton")
-        .setLabel("Open Request")
+        .setCustomId("openSellRequestButton")
+        .setLabel("Open Sell Request")
         .setStyle("SUCCESS")
-        .setEmoji("💰")
+        .setEmoji("💰"),
+      new MessageButton()
+        .setCustomId("openBuyRequestButton")
+        .setLabel("Open Buy Request")
+        .setStyle("PRIMARY")
+        .setEmoji("💸")
     );
 
     const embed = {
-      author: {
-        name: "Developer Hub",
-        icon_url:
-          "https://cdn.discordapp.com/icons/985660112779747388/4b1979b987a7113723bf0a211ca3c772.webp?size=96",
-      },
       title: "Buying and Selling Guide",
       color: 6930876,
       description:
