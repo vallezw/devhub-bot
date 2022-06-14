@@ -4,7 +4,7 @@
   "main": "index.js",
   "repository": "https://github.com/vallezw/devhub-bot.git",
   "author": "Valentin Zwerschke <v.zwerschke@mail.de>",
-  "license": "MIT",
+  "license": " AGPL-3.0-or-later",
   "dependencies": {
     "@discordjs/builders": "^0.15.0",
     "@discordjs/rest": "^0.5.0",
@@ -19,6 +19,8 @@
   },
   "scripts": {
     "start": "node index.js",
+    "start-test": "node index.js test",
+    "deploy-cmds": "node deploy-commands.js",
     "prepare": "husky install"
   }
 }

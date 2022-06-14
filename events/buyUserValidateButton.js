@@ -37,5 +37,12 @@ module.exports = {
         embeds: [embed],
       });
     });
+
+    // Send message to the user that your request has been validated
+    interaction.client.users
+      .fetch(interaction.message.content, false)
+      .then((user) => {
+        user.send("Hey there! Your buy request has been validated!");
+      });
   },
 };

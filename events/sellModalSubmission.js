@@ -75,6 +75,7 @@ module.exports = {
     };
 
     await submissionsChannel.send({
+      content: interaction.member.id,
       embeds: [embed],
       components: [row],
     });

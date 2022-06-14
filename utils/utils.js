@@ -19,4 +19,20 @@ module.exports = {
       });
     });
   },
+
+  checkTestRun: async function checkTestRun(args, callback) {
+    // This method will check if its run as a test or not and thereby change the configs
+    fs.unlink("config.json", (err) => {
+      if (err) console.log(err);
+      if (args[2] != undefined && args[2] == "test") {
+        console.log("Running in test mode...");
+        fs.copyFileSync("configs/testingConfig.json", "config.json");
+        callback();
+        return;
+      }
+      console.log("Running in main mode...");
+      fs.copyFileSync("configs/mainConfig.json", "config.json");
+      callback();
+    });
+  },
 };
